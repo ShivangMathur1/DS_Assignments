@@ -1,7 +1,7 @@
 #include<iostream>
 #include<math.h>
 
-#define N 5
+#define N 4
 
 using namespace std;
 
