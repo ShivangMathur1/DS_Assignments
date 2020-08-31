@@ -34,12 +34,15 @@ class list
 		n->val = e;
 		n->next = NULL;
 		
+		if(tail == NULL)
+		{
+			tail = n;
+			head = n;
+			return;
+		}
+		
 		tail->next = n;
 		tail = n;
-		if(head == NULL)
-		{
-			head = tail;
-		}
 	}
 	
 	void insertMid(int e, int d)
@@ -114,7 +117,7 @@ class list
 		{
 			cout<<"Error: List empty";
 		}
-		node *temp = head, *pre = NULL;
+		node *temp = head, *pre = head;
 		
 		while(temp->next != NULL)
 		{

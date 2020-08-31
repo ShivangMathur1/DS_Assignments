@@ -32,6 +32,7 @@ class list
 		tail = n;
 	}
 	
+	
 	void display()
 	{
 		node *temp = head;
@@ -44,31 +45,24 @@ class list
 		}
 	}
 	
-	void middle()
+	int del(int e)
 	{
+		int count = 0;
 		if(head == NULL)
 		{
 			cout<<"Error: list empty";
 			return;		
 		}
-		
 		node *temp = head;
-		int l = 1;
 		
+		if(temp->val == e)
+		{
+			head = 
+		}
 		while(temp->next != NULL)
 		{
-			l++;
-			temp = temp->next;
-		}
-		
-		cout<<"\nl = "<<l<<"\n";
-		
-		temp = head;
-		for(int i = 0; i < (l - 1)/2; i++)
-		{
-			temp = temp->next;
-		}
-		cout<<"Mid element is: "<<temp->val;
+			
+		}		
 	}
 };
 
@@ -96,7 +90,7 @@ int main()
 			
 			case 2:
 			{
-				l.middle();
+				l.reverse();
 				cout<<"\n\n";
 				
 				break;

@@ -32,6 +32,7 @@ class list
 		tail = n;
 	}
 	
+	
 	void display()
 	{
 		node *temp = head;
@@ -44,7 +45,7 @@ class list
 		}
 	}
 	
-	void middle()
+	void reverse()
 	{
 		if(head == NULL)
 		{
@@ -52,23 +53,26 @@ class list
 			return;		
 		}
 		
-		node *temp = head;
-		int l = 1;
+		node *h = NULL, *t;
 		
-		while(temp->next != NULL)
+		while(head != NULL)
 		{
-			l++;
-			temp = temp->next;
+			if(h == NULL)
+			{
+				h = head;
+				head = head->next;
+				h->next = NULL;
+				t = h;
+				continue;
+			}
+						
+			t = head;
+			head = head->next;
+			t->next = h;
+			h = t;
 		}
+		head = h;
 		
-		cout<<"\nl = "<<l<<"\n";
-		
-		temp = head;
-		for(int i = 0; i < (l - 1)/2; i++)
-		{
-			temp = temp->next;
-		}
-		cout<<"Mid element is: "<<temp->val;
 	}
 };
 
@@ -96,7 +100,7 @@ int main()
 			
 			case 2:
 			{
-				l.middle();
+				l.reverse();
 				cout<<"\n\n";
 				
 				break;
