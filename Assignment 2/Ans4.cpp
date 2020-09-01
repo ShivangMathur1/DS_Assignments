@@ -83,7 +83,7 @@ int main()
 	
 	do
 	{
-		cout<<"Link List Menu----------------------\n1. Insert\n2. Find middle element\n3. Display list\n4. Exit\nChoice: ";
+		cout<<"Link List Menu----------------------\n1. Insert\n2. Reverse\n3. Display list\n4. Exit\nChoice: ";
 		cin>>choice;
 		
 		switch(choice)

@@ -115,17 +115,42 @@ class list
 	{
 		if(head == NULL)
 		{
-			cout<<"Error: List empty";
+			cout<<"Error: list empty\n\n";
+			return;		
 		}
 		node *temp = head, *pre = head;
 		
-		while(temp->next != NULL)
+
+		while(temp)
 		{
+			cout<<temp->val<<" - "<<pre->val<<"\n";
 			if(temp->val == e)
 			{
-				
+				if(pre == temp)
+				{
+					head = head->next;
+					pre = head;
+					temp->next = NULL;
+					delete temp;
+					temp = head;
+					return;
+				}
+				pre->next = temp->next;
+				cout<<"end:";
+				temp->next = NULL;
+				cout<<"end:";
+				delete temp;
+				cout<<"end:";
+				temp = pre->next;
+				cout<<"end:";
+				return;
 			}
-		}
+			if(temp)
+			{
+				pre = temp;
+				temp = temp->next;
+			}
+		}		
 	}
 
 	void search(int e)
@@ -222,6 +247,16 @@ int main()
 				l.search(e);
 
 				break;
+			}
+
+			case 6:
+			{
+				int e;
+				cout<<"Enter element to be deleted: ";
+				cin>>e;
+				l.deleteMid(e);
+				
+				break;			
 			}
 
 			case 8:

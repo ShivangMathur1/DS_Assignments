@@ -50,19 +50,39 @@ class list
 		int count = 0;
 		if(head == NULL)
 		{
-			cout<<"Error: list empty";
-			return;		
+			cout<<"Error: list empty\n\n";
+			return 0;		
 		}
-		node *temp = head;
+		node *temp = head, *pre = head;
 		
-		if(temp->val == e)
+
+		while(temp)
 		{
-			head = 
-		}
-		while(temp->next != NULL)
-		{
-			
+			if(temp->val == e)
+			{
+				if(pre == temp)
+				{
+					head = head->next;
+					pre = head;
+					temp->next = NULL;
+					delete temp;
+					temp = head;
+					count++;
+					continue;
+				}
+				pre->next = temp->next;
+				temp->next = NULL;
+				delete temp;
+				temp = pre->next;
+				count++;
+			}
+			if(temp)
+			{
+				pre = temp;
+				temp = temp->next;
+			}
 		}		
+		return count;
 	}
 };
 
@@ -73,9 +93,9 @@ int main()
 	
 	do
 	{
-		cout<<"Link List Menu----------------------\n1. Insert\n2. Find middle element\n3. Display list\n4. Exit\nChoice: ";
+		cout<<"Link List Menu----------------------\n1. Insert\n2. Delete all occurances\n3. Display list\n4. Exit\nChoice: ";
 		cin>>choice;
-		
+
 		switch(choice)
 		{
 			case 1: 
@@ -90,8 +110,14 @@ int main()
 			
 			case 2:
 			{
-				l.reverse();
-				cout<<"\n\n";
+				int e;
+				cout<<"Enter the element to be purged: ";
+				cin>>e;
+				int c = l.del(e);
+				if(c)
+				{
+					cout<<"Element "<<e<<" found "<<c<<" times.\n\n";
+				}
 				
 				break;
 			}
