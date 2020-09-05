@@ -24,13 +24,26 @@ int main()
 		s = a[i][0];
 		for(int j = 1; j < N; j++)
 		{
-			if(s > a[i][j])
+			if(s > a[x][j])
 			{
-				s = a[i][j];
+				s = a[x][j];
 				y = j;
 			}
 		}
 		
+		int flag = 1;
+		for(int j = 0; j < N; j++)
+		{
+			if(s < a[j][y])
+			{
+				flag = 0;
+			}
+		}
+
+		if(flag)
+		{
+			cout<<"Saddle point "<<s<<" found at ("<<x + 1<<", "<<y + 1<<")";
+		}
 	}
 	return 0;
 }
