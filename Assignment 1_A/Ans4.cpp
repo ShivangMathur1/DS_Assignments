@@ -6,6 +6,7 @@ using namespace std;
 
 int main()
 {
+	int a[N][N];
 	cout<<"Enter a matrix:\n";
 	for(int i = 0; i < N; i++)
 	{
@@ -15,15 +16,17 @@ int main()
 		}
 	}
 	
-	int x = 0, y = 0;
+	int x = 0, y = 0, s;
 	for(int i = 0; i < N; i++)
 	{
 		x = i;
 		y = 0;
+		s = a[i][0];
 		for(int j = 1; j < N; j++)
 		{
 			if(s > a[i][j])
 			{
+				s = a[i][j];
 				y = j;
 			}
 		}
