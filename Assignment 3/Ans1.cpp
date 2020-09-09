@@ -80,7 +80,7 @@ class doubly
 		int i = 0;
 		while(temp)
 		{
-			if(temp->val == e)
+			if(temp->val == e) 
 			{
 				cout<<"Element "<<e<<" found at index "<<i + 1;
 				return;
