@@ -19,9 +19,9 @@ int main()
 		hash[arr[i]]++;
 	}
 	
+	int max = 0, res = -1;
 	for(auto i : hash)
 	{
-		int max = 0, res = -1;
 		if(max < i.second)
 		{
 			max = i.second;
@@ -29,6 +29,6 @@ int main()
 		}
 	}
 	
-	cout<<"Element "<<res<<" has max frequency "<<max;
+	cout<<"Element "<<res<<" has max frequency\n";
 	return 0;
 }
